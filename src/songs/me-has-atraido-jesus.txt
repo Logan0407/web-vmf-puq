@@ -2,6 +2,9 @@
 {key: Sol}
 {author: Jesús Adrián Romero}
 {youtube: VmV-JvBdlo4?si=6TaQWOB8HdlzF_-a}
+{tempo: 96}
+{compas: 4/4}
+{duracion: 6:04}
 
 
 == Intro ==

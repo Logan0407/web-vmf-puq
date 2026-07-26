@@ -2,6 +2,9 @@
 {key: La}
 {author: Majo y Dan}
 {youtube: yQemHF6kQQ8?si=UMz-TtGGp3sUPFkp}
+{tempo: 73}
+{compas: 4/4}
+{duracion: 5:10}
 
 
 == Intro ==

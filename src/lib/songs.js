@@ -219,6 +219,8 @@ function leerArchivo(ruta, crudo) {
     youtube: limpiarYoutube(meta.youtube),
     spotify: meta.spotify || '',
     tempo: meta.tempo || '',
+    compas: meta.compas || '',
+    duracion: meta.duracion || '',
     nota: meta.note || '',
     secciones,
     // Solo la letra, para el buscador

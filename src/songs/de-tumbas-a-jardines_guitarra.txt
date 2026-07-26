@@ -2,6 +2,9 @@
 {key: G}
 {author: Elevation Worship}
 {youtube: hZ_Fcag-fH8?si=6DkNelsipMqveQ2k}
+{tempo: 70}
+{compas: 6/8}
+{duracion: 5:50}
 
 == Intro ==
 G - C

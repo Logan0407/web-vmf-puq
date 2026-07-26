@@ -4,6 +4,8 @@
 {youtube: dQw4w9WgXcQ}
 {spotify: }
 {tempo: }
+{compas: 4/4}
+{duracion: }
 {note: Cualquier aviso para el grupo. Se muestra bajo el título.}
 
 == Intro ==
@@ -43,6 +45,10 @@ La última línea
 #
 # 2. En "youtube" va solo el ID del video, no la URL completa:
 #      https://www.youtube.com/watch?v=dQw4w9WgXcQ  ->  dQw4w9WgXcQ
+#
+# 2b. "tempo" y "compas" alimentan el metrónomo (el compás define
+#     cuántos golpes tiene cada compás, ej: 4/4 son 4, 6/8 son 6).
+#     Sin "tempo" no aparece el botón del metrónomo para esa canción.
 #
 # 3. Las secciones se abren con == Nombre == y el nombre aparece
 #    en pantalla como etiqueta. Sirve para que el grupo sepa dónde

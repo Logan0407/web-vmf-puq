@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 import { seccionAHtml, tonoTranspuesto } from '../lib/songs'
+import Metronomo from './Metronomo'
 
 const TAMANOS = [15, 17, 19, 22, 26, 30]
 
@@ -9,11 +10,13 @@ export default function Cancion({ cancion, claro, alternarTema }) {
   const [tamano, setTamano] = useState(2)
   const [escenario, setEscenario] = useState(false)
   const [verVideo, setVerVideo] = useState(false)
+  const [metronomoAbierto, setMetronomoAbierto] = useState(false)
 
   // Cada canción se abre en su tono original
   useEffect(() => {
     setSemitonos(0)
     setVerVideo(false)
+    setMetronomoAbierto(false)
   }, [cancion.slug])
 
   const secciones = useMemo(
@@ -50,6 +53,7 @@ export default function Cancion({ cancion, claro, alternarTema }) {
             </span>
           )}
           {cancion.tempo && <span className="mono">{cancion.tempo} bpm</span>}
+          {cancion.duracion && <span className="mono">{cancion.duracion}</span>}
         </p>
         {cancion.nota && <p className="nota-cancion">{cancion.nota}</p>}
       </header>
@@ -95,6 +99,10 @@ export default function Cancion({ cancion, claro, alternarTema }) {
         ))}
       </div>
 
+      {metronomoAbierto && cancion.tempo && (
+        <Metronomo bpm={Number(cancion.tempo)} compas={cancion.compas} />
+      )}
+
       <div className="consola">
         <div className="grupo-capo">
           <button
@@ -128,6 +136,14 @@ export default function Cancion({ cancion, claro, alternarTema }) {
         </div>
 
         <div className="grupo-derecha">
+          {cancion.tempo && (
+            <button
+              className={'tecla tecla-ancha' + (metronomoAbierto ? ' tecla-activa' : '')}
+              onClick={() => setMetronomoAbierto(!metronomoAbierto)}
+            >
+              ♩ {cancion.tempo}
+            </button>
+          )}
           {semitonos !== 0 && (
             <button className="tecla tecla-ancha" onClick={() => setSemitonos(0)}>
               Volver al tono

@@ -2,6 +2,9 @@
 {key: Sol}
 {author: Marcos Witt}
 {youtube: LjgSRrwaQb8?si=nHvg8fAWqAi6ZTEP}
+{tempo: 61.5}
+{compas: 4/4}
+{duracion: 5:55}
 
 == Intro ==
 

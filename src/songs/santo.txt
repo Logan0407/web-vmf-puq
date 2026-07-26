@@ -2,6 +2,9 @@
 {key: Si}
 {author: Upperrom}
 {youtube: EWfCEjFOGbQ?si=z1G964idKyVBd_Y7}
+{tempo: 86}
+{compas: 4/4}
+{duracion: 5:57}
 
 
 == Intro ==

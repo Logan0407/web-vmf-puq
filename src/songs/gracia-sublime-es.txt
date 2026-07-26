@@ -1,6 +1,9 @@
 {title: Gracia sublime es}
 {key: G}
 {youtube: 0IWl_QPVBMI?si=2OiFPFLFEhOG_-kN }
+{tempo: 104}
+{compas: 4/4}
+{duracion: 4:32}
 {note: Revisar la posición exacta de los acordes del coro.}
 
 == Intro ==

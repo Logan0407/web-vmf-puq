@@ -2,6 +2,9 @@
 {key: Do}
 {author: Michael Bunster}
 {youtube: y2AQj8cywLw?si=u9HxJkawDH7gybgA}
+{tempo: 71}
+{compas: 4/4}
+{duracion: 9:51}
 
 == Intro ==
 Sol - Do - Mim - Re

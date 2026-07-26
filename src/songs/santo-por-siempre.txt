@@ -2,6 +2,9 @@
 {key: Fa}
 {author: La IBI}
 {youtube: RSAsPD3DN2A?si=Z85ctXRDou_Thloo}
+{tempo: 70}
+{compas: 4/4}
+{duracion: 5:18}
 
 
 == Intro ==

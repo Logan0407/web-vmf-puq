@@ -2,6 +2,9 @@
 {key: F#}
 {author: La IBI}
 {youtube: RSAsPD3DN2A?si=NhyhTXfOA8q1LoJt}
+{tempo: 110}
+{compas: 4/4}
+{duracion: 5:31}
 
 == Intro ==
 Fa# - Do# - Re#m - Si
