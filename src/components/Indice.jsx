@@ -103,8 +103,7 @@ export default function Indice({ claro, alternarTema }) {
 
       <footer className="pie">
         <span className="marca-pie" role="img" aria-label="VMF Magallanes" />
-        Para agregar una canción, sube un archivo <code>.txt</code> a{' '}
-        <code>src/songs/</code> y haz push.
+        Creador Web - Israel Vila - Punta Arenas Chile - 2026
       </footer>
     </div>
   )
