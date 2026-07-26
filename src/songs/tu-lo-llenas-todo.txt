@@ -1,0 +1,50 @@
+{title: Tu lo llenas todo}
+{key: Do}
+{author: Michael Bunster}
+{youtube: y2AQj8cywLw?si=u9HxJkawDH7gybgA}
+
+== Intro ==
+Sol - Do - Mim - Re
+
+== Estrofa 1 ==
+  Do                             Lam7
+//El universo gira en torno a ti, toda tu obra se postra
+         Rem7                 Sib    Sol
+  Ante tu majestad, ante tu autoridad.
+  Do                            Lam7
+  Toda tormenta se sujeta a ti, mis pensamientos se rinden
+          Rem7               Sib      Sol
+ Ante tu autoridad, al príncipe de paz//
+
+
+== Coro ==
+               Do                 Lam7
+//Tú lo llenas todo, tú lo llenas todo
+           Sol                       Fa
+Tú eres el centro, el universo te adora.
+              Do                  Lam7
+Tú lo ordenas todo, tú lo ordenas todo
+           Sol                     Fa
+Tú eres el centro, el universo te adora//
+
+
+== Puente ==
+ Lam
+//Porque el señor es Rey, vestido en majestad
+ Do
+ Más poderoso es que el estruendo del mar
+ Rem
+ Firme su trono es por la eternidad
+ Fa                Sol
+ La creación cantará //
+
+
+== Coro Final ==
+               Do                 Lam7
+//Tú lo llenas todo, tú lo llenas todo
+           Sol                      Fa
+Tú eres el centro, el universo te adora.
+              Do                  Lam7
+Tú lo ordenas todo, tú lo ordenas todo
+           Sol                      Fa
+Tú eres el centro, el universo te adora//

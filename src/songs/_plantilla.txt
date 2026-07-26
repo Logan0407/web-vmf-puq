@@ -1,0 +1,76 @@
+{title: Título de la canción}
+{key: G}
+{author: Autor o grupo}
+{youtube: dQw4w9WgXcQ}
+{spotify: }
+{tempo: }
+{note: Cualquier aviso para el grupo. Se muestra bajo el título.}
+
+== Intro ==
+G - C - Em - D
+
+== Estrofa 1 ==
+G                    C
+Acá va la letra de la canción
+Em            D
+Y acá la segunda línea
+
+== Pre coro ==
+C              D
+Escribe el acorde justo encima de la sílaba
+Em             D
+donde cambia de verdad
+
+== Coro ==
+G              C
+Las secciones se marcan con dos signos igual
+Em             D
+y el nombre puede ser cualquiera
+
+== Puente ==
+Em - C - G - D
+
+== Final ==
+G
+La última línea
+
+
+# ------------------------------------------------------------------
+# Cómo funciona este archivo
+#
+# 1. Los datos van arriba entre llaves. Solo "title" es obligatorio,
+#    pero sin "key" el capo no sabe desde qué tono transponer.
+#
+# 2. En "youtube" va solo el ID del video, no la URL completa:
+#      https://www.youtube.com/watch?v=dQw4w9WgXcQ  ->  dQw4w9WgXcQ
+#
+# 3. Las secciones se abren con == Nombre == y el nombre aparece
+#    en pantalla como etiqueta. Sirve para que el grupo sepa dónde
+#    está parado cuando le dices "vamos al puente".
+#
+# 4. Los acordes van en su propia línea, encima de la letra, en la
+#    columna donde cae el cambio. Cuenta los caracteres, no los
+#    tabs: un tab en Word no equivale a una posición fija.
+#
+# 4b. Sirven las dos notaciones:
+#       inglesa:  C  D  E  F  G  A  B     (Am, F#m7, Csus4, G/B)
+#       latina:   Do Re Mi Fa Sol La Si   (Lam, Fa#m7, Dosus4, Sol/Si)
+#
+#     La capitalización importa: "Sol" es un acorde, "sol" es una
+#     palabra. Escribe siempre la primera letra en mayúscula.
+#
+#     El menor se escribe pegado: Lam, Mim, Fa#m. También sirve
+#     Lam7, Dosus4, Domaj7, Do/Sol.
+#
+#     Puedes tener unas canciones en inglés y otras en solfeo sin
+#     problema, pero no conviene mezclar las dos dentro de la misma
+#     canción: funciona, pero al transponer queda a medio camino
+#     entre las dos notaciones y confunde al que lee.
+#
+# 5. Una sección puede tener solo acordes y ninguna letra
+#    (un intro o un puente instrumental). Se muestra tal cual.
+#
+# 6. Este archivo empieza con _ , así que renómbralo al copiarlo.
+#    El nombre del archivo define la dirección de la canción:
+#    gracia-sublime-es.txt  ->  /#/gracia-sublime-es
+# ------------------------------------------------------------------

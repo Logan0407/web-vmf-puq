@@ -1,0 +1,657 @@
+/* ---------------------------------------------------------------
+   Cancionero — VMF Magallanes
+   La paleta sale del logo: azul #006CA4 y blanco. Ese azul tiene
+   solo 2.70:1 de contraste sobre el fondo oscuro, así que para los
+   acordes se usa una variante aclarada del mismo tono (8.55:1) y el
+   azul original queda para el modo día, donde sí rinde.
+   El modo oscuro es el predeterminado: el uso real es leer desde el
+   escenario con las luces bajas.
+   --------------------------------------------------------------- */
+
+:root {
+  /* azules del logo */
+  --marca: #006ca4;
+  --azul-noche: #052836;
+  --azul-profundo: #082f3f;
+  --azul-barra: #0c3b4e;
+  --azul-claro: #7ccbf0;
+  --azul-oscuro: #00537f;
+  --blanco-hueso: #eef3f6;
+
+  --fondo: var(--azul-noche);
+  --superficie: var(--azul-profundo);
+  --superficie-alta: var(--azul-barra);
+  --tinta: #e8f2f8;
+  --tinta-suave: #89afc4;
+  --acorde: var(--azul-claro);
+  --borde: rgba(124, 203, 240, 0.18);
+  --realce: rgba(124, 203, 240, 0.07);
+
+  --display: 'Bodoni Moda', Georgia, serif;
+  --utilidad: 'Jost', system-ui, sans-serif;
+  --texto: 'Work Sans', system-ui, sans-serif;
+  --mono: 'IBM Plex Mono', ui-monospace, monospace;
+
+  --ancho: 44rem;
+  --radio: 3px;
+}
+
+:root[data-tema='claro'] {
+  --fondo: var(--blanco-hueso);
+  --superficie: #f7fafb;
+  --superficie-alta: #ffffff;
+  --tinta: #12232c;
+  --tinta-suave: #52707f;
+  --acorde: var(--azul-oscuro);
+  --borde: rgba(0, 108, 164, 0.22);
+  --realce: rgba(0, 108, 164, 0.06);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--fondo);
+  color: var(--tinta);
+  font-family: var(--texto);
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+:focus-visible {
+  outline: 2px solid var(--acorde);
+  outline-offset: 3px;
+}
+
+.pagina {
+  max-width: var(--ancho);
+  margin: 0 auto;
+  padding: 2rem 1.25rem 3rem;
+}
+
+
+/* ------------------------------------------------------ logo */
+
+.logo {
+  width: clamp(8rem, 34vw, 11rem);
+  aspect-ratio: 459 / 224;
+  background-color: var(--tinta);
+  -webkit-mask: url('/logo.png') no-repeat center / contain;
+  mask: url('/logo.png') no-repeat center / contain;
+}
+
+.logo-cabecera {
+  margin-bottom: 1.5rem;
+}
+
+.marca-pie {
+  width: 4.5rem;
+  aspect-ratio: 459 / 224;
+  background-color: var(--tinta-suave);
+  -webkit-mask: url('/logo.png') no-repeat center / contain;
+  mask: url('/logo.png') no-repeat center / contain;
+  margin-bottom: 0.9rem;
+}
+
+/* ---------------------------------------------------- portada */
+
+.portada {
+  border-bottom: 1px solid var(--borde);
+  padding-bottom: 1.75rem;
+  margin-bottom: 1.75rem;
+}
+
+.portada-fila {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.eyebrow {
+  margin: 0;
+  font-family: var(--utilidad);
+  font-weight: 600;
+  font-size: 0.72rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--tinta-suave);
+}
+
+.portada-titulo {
+  margin: 0.35rem 0 0.5rem;
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: clamp(2.6rem, 11vw, 4.2rem);
+  line-height: 1;
+  letter-spacing: -0.01em;
+}
+
+.portada-cuenta {
+  margin: 0;
+  color: var(--tinta-suave);
+  font-size: 0.95rem;
+}
+
+.cifra {
+  font-family: var(--mono);
+  font-weight: 600;
+  color: var(--acorde);
+}
+
+.boton-tema {
+  font-family: var(--utilidad);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--tinta-suave);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  padding: 0.4rem 0.7rem;
+  white-space: nowrap;
+}
+
+.boton-tema:hover {
+  color: var(--acorde);
+  border-color: var(--acorde);
+}
+
+/* --------------------------------------------------- buscador */
+
+.buscador {
+  margin-bottom: 1.5rem;
+}
+
+.campo {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  font: inherit;
+  color: var(--tinta);
+  background: var(--superficie);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+}
+
+.campo::placeholder {
+  color: var(--tinta-suave);
+}
+
+.campo:focus {
+  outline: none;
+  border-color: var(--acorde);
+}
+
+.filtro-tonos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.75rem;
+}
+
+.chip {
+  font-family: var(--utilidad);
+  font-size: 0.8rem;
+  font-weight: 500;
+  padding: 0.28rem 0.6rem;
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  color: var(--tinta-suave);
+}
+
+.chip:hover {
+  color: var(--acorde);
+}
+
+.chip-activo {
+  color: var(--fondo);
+  background: var(--acorde);
+  border-color: var(--acorde);
+}
+
+/* ----------------------------------------------------- índice */
+
+.lista {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--borde);
+}
+
+.fila {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.95rem 0.5rem;
+  border-bottom: 1px solid var(--borde);
+}
+
+.fila:hover {
+  background: var(--realce);
+}
+
+.fila-texto {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  min-width: 0;
+}
+
+.fila-titulo {
+  font-family: var(--texto);
+  font-weight: 500;
+  font-size: 1.1rem;
+  line-height: 1.25;
+}
+
+.fila-autor {
+  font-size: 0.82rem;
+  color: var(--tinta-suave);
+}
+
+.fila-datos {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  flex-shrink: 0;
+}
+
+.marca-audio {
+  font-size: 0.7rem;
+  color: var(--tinta-suave);
+}
+
+.fila-tono {
+  font-family: var(--mono);
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--acorde);
+  min-width: 2.2ch;
+  text-align: right;
+}
+
+.sin-resultados,
+.pie {
+  color: var(--tinta-suave);
+  font-size: 0.88rem;
+}
+
+.pie {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 2.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--borde);
+}
+
+.pie code {
+  font-family: var(--mono);
+  font-size: 0.85em;
+  color: var(--tinta);
+}
+
+/* ------------------------------------------- vista de canción */
+
+.pagina-cancion {
+  padding-bottom: 7rem;
+}
+
+.barra-superior {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.75rem;
+}
+
+.enlace-volver {
+  font-family: var(--utilidad);
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  color: var(--tinta-suave);
+}
+
+.enlace-volver:hover {
+  color: var(--acorde);
+}
+
+.cabecera-cancion {
+  margin-bottom: 1.5rem;
+}
+
+.titulo-cancion {
+  margin: 0 0 0.5rem;
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: clamp(1.9rem, 7vw, 2.8rem);
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+}
+
+.meta-cancion {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1rem;
+  margin: 0;
+  font-size: 0.88rem;
+  color: var(--tinta-suave);
+}
+
+.meta-cancion strong {
+  color: var(--acorde);
+  font-weight: 600;
+}
+
+.mono {
+  font-family: var(--mono);
+}
+
+.nota-cancion {
+  margin: 0.85rem 0 0;
+  padding-left: 0.8rem;
+  border-left: 2px solid var(--acorde);
+  font-size: 0.9rem;
+  color: var(--tinta-suave);
+}
+
+/* ------------------------------------------------------ video */
+
+.bloque-video {
+  margin-bottom: 2rem;
+}
+
+.boton-video {
+  font-family: var(--utilidad);
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.65rem 1rem;
+  color: var(--acorde);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+}
+
+.boton-video:hover {
+  border-color: var(--acorde);
+  background: var(--realce);
+}
+
+.marco-video {
+  position: relative;
+  padding-top: 56.25%;
+  background: var(--superficie);
+  border-radius: var(--radio);
+  overflow: hidden;
+}
+
+.marco-video iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.enlace-spotify {
+  display: inline-block;
+  margin-top: 0.6rem;
+  font-size: 0.82rem;
+  color: var(--tinta-suave);
+  border-bottom: 1px solid var(--borde);
+}
+
+.enlace-spotify:hover {
+  color: var(--acorde);
+}
+
+/* --------------------------------------- hoja de acordes */
+
+.hoja {
+  --tamano-letra: 19px;
+}
+
+.seccion {
+  margin-bottom: 1.9rem;
+}
+
+.nombre-seccion {
+  margin: 0 0 0.55rem;
+  font-family: var(--utilidad);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--tinta-suave);
+}
+
+.chord-sheet-wrap {
+  font-size: var(--tamano-letra);
+  line-height: 1.35;
+}
+
+.chord-sheet-wrap .paragraph {
+  margin-bottom: 0.85em;
+}
+
+/* Cada .row es una línea; cada .column agrupa un acorde con su
+   sílaba, así que al envolverse en pantallas chicas el acorde nunca
+   se separa de la palabra a la que pertenece. */
+.chord-sheet-wrap .row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+}
+
+.chord-sheet-wrap .column {
+  display: flex;
+  flex-direction: column;
+}
+
+.chord-sheet-wrap .chord {
+  font-family: var(--mono);
+  font-weight: 600;
+  font-size: 0.78em;
+  line-height: 1.5;
+  color: var(--acorde);
+  white-space: pre;
+  padding-right: 0.35em;
+}
+
+.chord-sheet-wrap .chord:empty::after {
+  content: '\00a0';
+}
+
+.chord-sheet-wrap .lyrics {
+  white-space: pre-wrap;
+}
+
+.chord-sheet-wrap .comment {
+  font-family: var(--mono);
+  font-size: 0.8em;
+  color: var(--tinta-suave);
+}
+
+.chord-sheet-wrap .crudo {
+  font-family: var(--mono);
+  font-size: 0.85em;
+  white-space: pre-wrap;
+  color: var(--tinta-suave);
+}
+
+/* -------------------------------- consola de atril (barra fija) */
+
+.consola {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  max-width: var(--ancho);
+  margin: 0 auto;
+  padding: 0.6rem 1rem calc(0.6rem + env(safe-area-inset-bottom));
+  background: var(--superficie-alta);
+  border-top: 1px solid var(--borde);
+}
+
+.grupo-capo,
+.grupo-derecha {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.tecla {
+  font-family: var(--mono);
+  font-size: 0.95rem;
+  font-weight: 600;
+  min-width: 2.6rem;
+  height: 2.6rem;
+  padding: 0 0.5rem;
+  color: var(--tinta);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+}
+
+.tecla:hover:not(:disabled) {
+  color: var(--acorde);
+  border-color: var(--acorde);
+}
+
+.tecla:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.tecla-ancha {
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  min-width: auto;
+  padding: 0 0.7rem;
+}
+
+.tecla-activa {
+  color: var(--fondo);
+  background: var(--acorde);
+  border-color: var(--acorde);
+}
+
+.pastilla-tono {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 5.5rem;
+  padding: 0.15rem 0.5rem;
+}
+
+.tono-grande {
+  font-family: var(--mono);
+  font-size: 1.35rem;
+  font-weight: 600;
+  line-height: 1.1;
+  color: var(--acorde);
+}
+
+.tono-desvio {
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.04em;
+  color: var(--tinta-suave);
+  white-space: nowrap;
+}
+
+/* ------------------------------------------- modo atril */
+
+.escenario {
+  padding-top: 1.25rem;
+}
+
+.escenario .cabecera-cancion {
+  margin-bottom: 1rem;
+}
+
+.escenario .titulo-cancion {
+  font-size: 1.35rem;
+}
+
+.escenario .meta-cancion {
+  display: none;
+}
+
+.escenario .hoja {
+  --tamano-letra: 24px;
+}
+
+/* -------------------------------------------------- vacío */
+
+.vacio {
+  max-width: var(--ancho);
+  margin: 0 auto;
+  padding: 5rem 1.25rem;
+  text-align: center;
+}
+
+.vacio-titulo {
+  font-family: var(--display);
+  font-size: 1.4rem;
+  margin: 0 0 1rem;
+}
+
+@media (max-width: 30rem) {
+  .consola {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .tecla {
+    min-width: 2.9rem;
+    height: 2.9rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+@media print {
+  .consola,
+  .barra-superior,
+  .bloque-video,
+  .boton-tema {
+    display: none;
+  }
+
+  body {
+    background: #fff;
+    color: #000;
+  }
+
+  .chord-sheet-wrap .chord {
+    color: #000;
+  }
+}
