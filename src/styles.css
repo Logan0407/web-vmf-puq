@@ -312,6 +312,11 @@ button {
 
 .pagina-cancion {
   padding-bottom: 7rem;
+  transition: padding-bottom 0.2s ease;
+}
+
+.pagina-cancion.consola-oculta {
+  padding-bottom: 2.5rem;
 }
 
 .barra-superior {
@@ -690,6 +695,38 @@ button {
   color: var(--fondo);
   background: var(--acorde);
   border-color: var(--acorde);
+}
+
+/* --------------------------------- asa para ocultar la consola */
+
+.asa-consola {
+  position: fixed;
+  left: 50%;
+  bottom: calc(3.8rem + env(safe-area-inset-bottom));
+  transform: translateX(-50%);
+  z-index: 12;
+  width: 2.75rem;
+  height: 1.15rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  color: var(--tinta-suave);
+  background: var(--superficie-alta);
+  border: 1px solid var(--borde);
+  border-bottom: none;
+  border-radius: var(--radio) var(--radio) 0 0;
+  transition: bottom 0.2s ease, color 0.15s ease;
+}
+
+.asa-consola:hover {
+  color: var(--acorde);
+}
+
+.asa-consola-oculta {
+  bottom: calc(0.4rem + env(safe-area-inset-bottom));
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
 }
 
 /* ------------------------------------------- modo atril */

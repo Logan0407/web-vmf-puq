@@ -11,6 +11,7 @@ export default function Cancion({ cancion, claro, alternarTema }) {
   const [escenario, setEscenario] = useState(false)
   const [verVideo, setVerVideo] = useState(false)
   const [metronomoAbierto, setMetronomoAbierto] = useState(false)
+  const [consolaVisible, setConsolaVisible] = useState(true)
 
   // Cada canción se abre en su tono original
   useEffect(() => {
@@ -31,7 +32,13 @@ export default function Cancion({ cancion, claro, alternarTema }) {
   const tonoActual = tonoTranspuesto(cancion.tono, semitonos, bemoles)
 
   return (
-    <div className={'pagina pagina-cancion' + (escenario ? ' escenario' : '')}>
+    <div
+      className={
+        'pagina pagina-cancion' +
+        (escenario ? ' escenario' : '') +
+        (consolaVisible ? '' : ' consola-oculta')
+      }
+    >
       {!escenario && (
         <nav className="barra-superior">
           <a className="enlace-volver" href="#/">
@@ -99,80 +106,90 @@ export default function Cancion({ cancion, claro, alternarTema }) {
         ))}
       </div>
 
-      {metronomoAbierto && cancion.tempo && (
+      {consolaVisible && metronomoAbierto && cancion.tempo && (
         <Metronomo bpm={Number(cancion.tempo)} compas={cancion.compas} />
       )}
 
-      <div className="consola">
-        <div className="grupo-capo">
-          <button
-            className="tecla"
-            onClick={() => setSemitonos(semitonos - 1)}
-            aria-label="Bajar un semitono"
-          >
-            −
-          </button>
-          <button
-            className="pastilla-tono"
-            onClick={() => setBemoles(!bemoles)}
-            title="Cambiar entre sostenidos y bemoles"
-          >
-            <span className="tono-grande">{tonoActual || '—'}</span>
-            <span className="tono-desvio">
-              {semitonos === 0
-                ? 'tono original'
-                : `${semitonos > 0 ? '+' : ''}${semitonos} semitono${
-                    Math.abs(semitonos) === 1 ? '' : 's'
-                  }`}
-            </span>
-          </button>
-          <button
-            className="tecla"
-            onClick={() => setSemitonos(semitonos + 1)}
-            aria-label="Subir un semitono"
-          >
-            +
-          </button>
-        </div>
+      <button
+        className={'asa-consola' + (consolaVisible ? '' : ' asa-consola-oculta')}
+        onClick={() => setConsolaVisible(!consolaVisible)}
+        aria-label={consolaVisible ? 'Ocultar barra inferior' : 'Mostrar barra inferior'}
+      >
+        {consolaVisible ? '▾' : '▴'}
+      </button>
 
-        <div className="grupo-derecha">
-          {cancion.tempo && (
+      {consolaVisible && (
+        <div className="consola">
+          <div className="grupo-capo">
             <button
-              className={'tecla tecla-ancha' + (metronomoAbierto ? ' tecla-activa' : '')}
-              onClick={() => setMetronomoAbierto(!metronomoAbierto)}
+              className="tecla"
+              onClick={() => setSemitonos(semitonos - 1)}
+              aria-label="Bajar un semitono"
             >
-              ♩ {cancion.tempo}
+              −
             </button>
-          )}
-          {semitonos !== 0 && (
-            <button className="tecla tecla-ancha" onClick={() => setSemitonos(0)}>
-              Volver al tono
+            <button
+              className="pastilla-tono"
+              onClick={() => setBemoles(!bemoles)}
+              title="Cambiar entre sostenidos y bemoles"
+            >
+              <span className="tono-grande">{tonoActual || '—'}</span>
+              <span className="tono-desvio">
+                {semitonos === 0
+                  ? 'tono original'
+                  : `${semitonos > 0 ? '+' : ''}${semitonos} semitono${
+                      Math.abs(semitonos) === 1 ? '' : 's'
+                    }`}
+              </span>
             </button>
-          )}
-          <button
-            className="tecla"
-            onClick={() => setTamano(Math.max(0, tamano - 1))}
-            aria-label="Letra más chica"
-            disabled={tamano === 0}
-          >
-            A−
-          </button>
-          <button
-            className="tecla"
-            onClick={() => setTamano(Math.min(TAMANOS.length - 1, tamano + 1))}
-            aria-label="Letra más grande"
-            disabled={tamano === TAMANOS.length - 1}
-          >
-            A+
-          </button>
-          <button
-            className={'tecla tecla-ancha' + (escenario ? ' tecla-activa' : '')}
-            onClick={() => setEscenario(!escenario)}
-          >
-            {escenario ? 'Salir' : 'Atril'}
-          </button>
+            <button
+              className="tecla"
+              onClick={() => setSemitonos(semitonos + 1)}
+              aria-label="Subir un semitono"
+            >
+              +
+            </button>
+          </div>
+
+          <div className="grupo-derecha">
+            {cancion.tempo && (
+              <button
+                className={'tecla tecla-ancha' + (metronomoAbierto ? ' tecla-activa' : '')}
+                onClick={() => setMetronomoAbierto(!metronomoAbierto)}
+              >
+                ♩ {cancion.tempo}
+              </button>
+            )}
+            {semitonos !== 0 && (
+              <button className="tecla tecla-ancha" onClick={() => setSemitonos(0)}>
+                Volver al tono
+              </button>
+            )}
+            <button
+              className="tecla"
+              onClick={() => setTamano(Math.max(0, tamano - 1))}
+              aria-label="Letra más chica"
+              disabled={tamano === 0}
+            >
+              A−
+            </button>
+            <button
+              className="tecla"
+              onClick={() => setTamano(Math.min(TAMANOS.length - 1, tamano + 1))}
+              aria-label="Letra más grande"
+              disabled={tamano === TAMANOS.length - 1}
+            >
+              A+
+            </button>
+            <button
+              className={'tecla tecla-ancha' + (escenario ? ' tecla-activa' : '')}
+              onClick={() => setEscenario(!escenario)}
+            >
+              {escenario ? 'Salir' : 'Atril'}
+            </button>
+          </div>
         </div>
-      </div>
+      )}
     </div>
   )
 }
