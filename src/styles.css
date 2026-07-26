@@ -699,12 +699,27 @@ button {
 
 /* --------------------------------- asa para ocultar la consola */
 
-.asa-consola {
+.fila-asa-consola {
   position: fixed;
-  left: 50%;
+  left: 0;
+  right: 0;
   bottom: calc(3.8rem + env(safe-area-inset-bottom));
-  transform: translateX(-50%);
   z-index: 12;
+  max-width: var(--ancho);
+  margin: 0 auto;
+  padding: 0 1.25rem;
+  display: flex;
+  justify-content: flex-end;
+  pointer-events: none;
+  transition: bottom 0.2s ease;
+}
+
+.fila-asa-consola-oculta {
+  bottom: calc(0.4rem + env(safe-area-inset-bottom));
+}
+
+.asa-consola {
+  pointer-events: auto;
   width: 2.75rem;
   height: 1.15rem;
   display: flex;
@@ -716,7 +731,7 @@ button {
   border: 1px solid var(--borde);
   border-bottom: none;
   border-radius: var(--radio) var(--radio) 0 0;
-  transition: bottom 0.2s ease, color 0.15s ease;
+  transition: color 0.15s ease;
 }
 
 .asa-consola:hover {
@@ -724,8 +739,7 @@ button {
 }
 
 .asa-consola-oculta {
-  bottom: calc(0.4rem + env(safe-area-inset-bottom));
-  border: 1px solid var(--borde);
+  border-bottom: 1px solid var(--borde);
   border-radius: var(--radio);
 }
 

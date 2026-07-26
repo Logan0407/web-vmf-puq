@@ -110,13 +110,15 @@ export default function Cancion({ cancion, claro, alternarTema }) {
         <Metronomo bpm={Number(cancion.tempo)} compas={cancion.compas} />
       )}
 
-      <button
-        className={'asa-consola' + (consolaVisible ? '' : ' asa-consola-oculta')}
-        onClick={() => setConsolaVisible(!consolaVisible)}
-        aria-label={consolaVisible ? 'Ocultar barra inferior' : 'Mostrar barra inferior'}
-      >
-        {consolaVisible ? '▾' : '▴'}
-      </button>
+      <div className={'fila-asa-consola' + (consolaVisible ? '' : ' fila-asa-consola-oculta')}>
+        <button
+          className={'asa-consola' + (consolaVisible ? '' : ' asa-consola-oculta')}
+          onClick={() => setConsolaVisible(!consolaVisible)}
+          aria-label={consolaVisible ? 'Ocultar barra inferior' : 'Mostrar barra inferior'}
+        >
+          {consolaVisible ? '▾' : '▴'}
+        </button>
+      </div>
 
       {consolaVisible && (
         <div className="consola">
