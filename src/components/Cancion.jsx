@@ -12,6 +12,7 @@ export default function Cancion({ cancion, claro, alternarTema }) {
   const [verVideo, setVerVideo] = useState(false)
   const [metronomoAbierto, setMetronomoAbierto] = useState(false)
   const [consolaVisible, setConsolaVisible] = useState(true)
+  const [ocultarAcordes, setOcultarAcordes] = useState(false)
 
   // Cada canción se abre en su tono original
   useEffect(() => {
@@ -94,7 +95,10 @@ export default function Cancion({ cancion, claro, alternarTema }) {
         </div>
       )}
 
-      <div className="hoja" style={{ '--tamano-letra': `${TAMANOS[tamano]}px` }}>
+      <div
+        className={'hoja' + (ocultarAcordes ? ' sin-acordes' : '')}
+        style={{ '--tamano-letra': `${TAMANOS[tamano]}px` }}
+      >
         {secciones.map((s, i) => (
           <section className="seccion" key={i}>
             {s.nombre && <h2 className="nombre-seccion">{s.nombre}</h2>}
@@ -122,35 +126,43 @@ export default function Cancion({ cancion, claro, alternarTema }) {
 
       {consolaVisible && (
         <div className="consola">
-          <div className="grupo-capo">
+          <div className="grupo-izquierda">
             <button
-              className="tecla"
-              onClick={() => setSemitonos(semitonos - 1)}
-              aria-label="Bajar un semitono"
+              className={'tecla tecla-ancha' + (ocultarAcordes ? ' tecla-activa' : '')}
+              onClick={() => setOcultarAcordes(!ocultarAcordes)}
             >
-              −
+              {ocultarAcordes ? 'Ver acordes' : 'Sin acordes'}
             </button>
-            <button
-              className="pastilla-tono"
-              onClick={() => setBemoles(!bemoles)}
-              title="Cambiar entre sostenidos y bemoles"
-            >
-              <span className="tono-grande">{tonoActual || '—'}</span>
-              <span className="tono-desvio">
-                {semitonos === 0
-                  ? 'tono original'
-                  : `${semitonos > 0 ? '+' : ''}${semitonos} semitono${
-                      Math.abs(semitonos) === 1 ? '' : 's'
-                    }`}
-              </span>
-            </button>
-            <button
-              className="tecla"
-              onClick={() => setSemitonos(semitonos + 1)}
-              aria-label="Subir un semitono"
-            >
-              +
-            </button>
+            <div className="grupo-capo">
+              <button
+                className="tecla"
+                onClick={() => setSemitonos(semitonos - 1)}
+                aria-label="Bajar un semitono"
+              >
+                −
+              </button>
+              <button
+                className="pastilla-tono"
+                onClick={() => setBemoles(!bemoles)}
+                title="Cambiar entre sostenidos y bemoles"
+              >
+                <span className="tono-grande">{tonoActual || '—'}</span>
+                <span className="tono-desvio">
+                  {semitonos === 0
+                    ? 'tono original'
+                    : `${semitonos > 0 ? '+' : ''}${semitonos} semitono${
+                        Math.abs(semitonos) === 1 ? '' : 's'
+                      }`}
+                </span>
+              </button>
+              <button
+                className="tecla"
+                onClick={() => setSemitonos(semitonos + 1)}
+                aria-label="Subir un semitono"
+              >
+                +
+              </button>
+            </div>
           </div>
 
           <div className="grupo-derecha">
