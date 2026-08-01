@@ -13,16 +13,10 @@ La
 == Estrofa 1 ==
   Re                     La     Mi      Re
 Solía vivir la vida en temor, y me encontró
-             La
-Un camino mejor
-Re
-Toda mi carga
-         La
-Y condenación
-Mi         Re
-Cambiada fue
-                    La
-Por tu gracia y perdón
+             La  Re                      La  
+Un camino mejor, toda mi carga y condenación
+Mi         Re                    La
+Cambiada fue, por tu gracia y perdón
              Mi   Fa#m   Re
 Y no me hace falta nada ya
 
@@ -33,48 +27,33 @@ No yo, sino Cristo
 La          Re   La
 No yo, sino Cristo
       Fa#m
-Lo que fui no soy más
-     
+Lo que fui no soy más     
       Mi
 Tú en mí vivo estás
-La  Re             Mi  La
-      No yo, solo Cristo
+La  Re           Mi  La
+     No yo, solo Cristo
 
 == Estrofa 2 ==
 
-   Re                La
-Y crucificado junto a ti
-   Mi      Re
-Ya no vivo yo
-            La
-Tú vives en mí
-      Re
-Y no hay nada más
-            Mi Fa#m
-Que pueda aportar
-   La       Re
-Tu gracia, Jesús
+   Re                La      Mi      Re
+Y crucificado junto a ti, ya no vivo yo
+            La       Re
+Tú vives en mí, y no hay nada más
+            Mi Fa#m    La      Re
+Que pueda aportar, tu gracia, Jesús
         Mi
 Me bastará
 
 == Estrofa 3 ==
 
-    Re
-Y consumado fue
-       Mi       Fa#m
-Por la fe puedo ver
-  Re
-Y este corazón
-     Mi  La
-Todo tuyo es
-   Re
-Y hoy mi adoración
-        Mi       Fa#m
-Vengo a darte, Señor
-Re
-Eres mi porción
-     Mi   La
-Para siempre
+    Re                 Mi       Fa#m
+Y consumado fue por la fe puedo ver
+  Re                Mi   La
+Y este corazón todo tuyo es
+   Re                      Mi      Fa#m
+Y hoy mi adoración vengo a darte, Señor
+Re                   Mi   La
+Eres mi porción para siempre
 
 
 == Final ==
@@ -87,5 +66,5 @@ Lo que fui no soy más
      
       Mi
 Tú en mí vivo estás
-La  Re             Mi  La
-      No yo, solo Cristo
+La  Re           Mi  La
+     No yo, solo Cristo
